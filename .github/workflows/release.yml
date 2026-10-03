@@ -1,0 +1,46 @@
+name: Release APK
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Set up Gradle
+        uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: '8.7'
+
+      - name: Generate Gradle wrapper
+        run: gradle wrapper --gradle-version 8.7
+
+      - name: Build debug APK
+        run: ./gradlew assembleDebug --no-daemon
+
+      - name: Rename APK
+        run: cp app/build/outputs/apk/debug/app-debug.apk ShinaMusicPlayer-v1.0.apk
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: v1.0
+          name: Shina Music Player v1.0
+          body: |
+            First release of Shina Music Player — a native Android music player.
+
+            Install: download ShinaMusicPlayer-v1.0.apk below, open it on your Android phone, and allow installation if asked. On first launch, grant audio permission so the player can scan your music library.
+
+            Features: device library scan, search & sort, shuffle/repeat, favorites, background playback with notification controls, album art, playback speed, equalizer, sleep timer.
+          files: ShinaMusicPlayer-v1.0.apk
