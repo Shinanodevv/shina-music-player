@@ -2,6 +2,8 @@
 
 A native Android music player built with Kotlin. The APK is built entirely by GitHub Actions — no local Android SDK needed.
 
+**v1.1:** polished purple gradient UI, card-style now-playing panel, and Shina's avatar as the app launcher icon.
+
 ## Features
 
 - Scan and play music from the device library (MediaStore)
