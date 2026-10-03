@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.ShinaMusicPlayer" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">#6D5DF6</item>
+        <item name="colorPrimaryVariant">#5847D6</item>
+        <item name="colorOnPrimary">#FFFFFF</item>
+        <item name="android:statusBarColor">#17142B</item>
+        <item name="android:navigationBarColor">#17142B</item>
+    </style>
+</resources>
