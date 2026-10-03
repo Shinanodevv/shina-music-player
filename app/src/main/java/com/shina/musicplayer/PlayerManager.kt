@@ -20,7 +20,7 @@ object PlayerManager {
     var index: Int = -1
     var shuffle: Boolean = false
     var repeatMode: Int = 0 // 0 off, 1 all, 2 one
-    var speed: Float = 1.0f
+    @JvmField var speed: Float = 1.0f
     var onSongChanged: ((Song?) -> Unit)? = null
     var onIsPlayingChanged: ((Boolean) -> Unit)? = null
 
